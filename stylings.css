@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap");
+:root {
+    --bg-light: #ecebe4;
+    --bg-dark: #2d2d34;
+    --fg-light: #20173b;
+    --fg-dark: #dee3e5;
+    --bg: var(--bg-light);
+    --fg: var(--fg-light);
+}
+:root[data-theme="dark"] {
+    --bg: var(--bg-dark);
+    --fg: var(--fg-dark);
+}
+body {
+    font-family: "Stack Sans Notch", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 475;
+    font-style: normal;
+    background-size: 150%;
+    background-color: var(--bg);
+    color: var(--fg);
+    text-align: center;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+h1 {
+    text-align: center;
+    font-size: 40px;
+    position: relative;
+    cursor: pointer;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#hidden-text {
+    opacity: 0;
+    display: inline-block;
+    position: absolute;
+    top: 41px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    white-space: nowrap;
+    transition: opacity 0.8s ease-in-out;
+}
+h1:hover #hidden-text {
+    opacity: 1;
+}
+
+pfp {
+    display: block;
+    margin: 0 auto;
+    width: 10%;
+    max-width: 600px;
+    border-radius: 50%;
+    background-image: url("https://gravatar.com/avatar/b5fbf654effb8b43e41192b40f31b0b6639a54dd1ec763b54b5a75bfe3f4a4c1?v=1754874760000&size=256&d=initials");
+    background-size: cover;
+    background-position: center;
+}
+.heart {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(heart-solid-full.svg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top: 3px;
+}
+.mood-toggle {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg) center/cover no-repeat;
+    border: none;
+    cursor: pointer;
+}
+:root[data-theme="light"] .mood-toggle {
+    background-image: url("moon-solid-full.svg");
+}
+:root[data-theme="dark"] .mood-toggle {
+    background-image: url("sun-solid-full.svg");
+}
+::view-transition-new(root) {
+    animation: reveal 350ms ease;
+}
+@keyframes reveal {
+    from {
+        clip-path: circle(0 at var(--x) var(--y));
+    }
+    to {
+        clip-path: circle(150vmax at var(--x) var(--y));
+    }
+}

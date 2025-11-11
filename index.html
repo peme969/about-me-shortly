@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shortly About Me</title>
+        <link rel="stylesheet" href="stylings.css" />
+    </head>
+    <body>
+        <button class="mood-toggle" id="themeToggle"></button>
+
+        <header>
+            <h1>
+                Praise-Him Zecharias
+                <span id="hidden-text"
+                    >aka the one and only
+                    <span id="signature"></span>peme969!</span
+                >
+            </h1>
+            <pfp>
+                <!--- moi custom tag, i like that -->
+            </pfp>
+        </header>
+        <main>
+            <section></section>
+            <section></section>
+        </main>
+        <footer>
+            <p>Made By Praise-Him With <span class="heart"></span></p>
+        </footer>
+        <script>
+            const root = document.documentElement,
+                btn = document.getElementById("themeToggle");
+            const sys = matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+            const get = () => localStorage.getItem("theme") || sys;
+            const set = (t) => {
+                root.setAttribute("data-theme", t);
+                localStorage.setItem("theme", t);
+            };
+            set(get());
+            btn.addEventListener("click", () => {
+                const next = get() === "dark" ? "light" : "dark";
+                const r = btn.getBoundingClientRect();
+                const x = r.left + r.width / 2;
+                const y = r.top + r.height / 2;
+                root.style.setProperty("--x", `${x}px`);
+                root.style.setProperty("--y", `${y}px`);
+                if (document.startViewTransition) {
+                    document.startViewTransition(() => set(next));
+                } else {
+                    set(next);
+                }
+            });
+        </script>
+    </body>
+</html>
