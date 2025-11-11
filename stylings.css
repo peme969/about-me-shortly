@@ -79,6 +79,9 @@ pfp {
     border: none;
     cursor: pointer;
 }
+.mood-toggle:focus {
+    outline: none;
+}
 :root[data-theme="light"] .mood-toggle {
     background-image: url("moon-solid-full.svg");
 }
