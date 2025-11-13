@@ -47,17 +47,22 @@ h1 {
 h1:hover #hidden-text {
     opacity: 1;
 }
-
-pfp {
+/*
+#pfp {
+    margin-top: 1%;
+    margin-left: 43%;
+    width: 200px;
+    height: 200px;
     display: block;
-    margin: 0 auto;
-    width: 10%;
-    max-width: 600px;
-    border-radius: 50%;
+    border-color: white;
+    border: 1px white solid;
+    border-radius: 10%;
+    aspect-ratio: 1 / 1;
     background-image: url("https://gravatar.com/avatar/b5fbf654effb8b43e41192b40f31b0b6639a54dd1ec763b54b5a75bfe3f4a4c1?v=1754874760000&size=256&d=initials");
     background-size: cover;
     background-position: center;
 }
+*/
 .heart {
     display: inline-block;
     width: 20px;
@@ -98,4 +103,59 @@ pfp {
     to {
         clip-path: circle(150vmax at var(--x) var(--y));
     }
+}
+.links {
+}
+.pfp-contain {
+    width: 200px;
+    height: 200px;
+    perspective: 600px;
+    margin: 0% auto;
+}
+.pfp-in {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+.pfp-contain:hover .pfp-in,
+.pfp-contain.flipped .pfp-in {
+    transform: rotateY(180deg);
+}
+.pfp-front,
+.pfp-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+.pfp-front img,
+.pfp-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pfp-back {
+    transform: rotateY(180deg);
+}
+.pfp-back img {
+    object-fit: contain;
+    transform: scale(0.85);
+}
+#pfp-tooltip {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: -18%;
+    margin-left: 80%;
+    width: 300px;
+}
+#pfp-tooltip p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
 }

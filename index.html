@@ -17,16 +17,35 @@
                     <span id="signature"></span>peme969!</span
                 >
             </h1>
-            <pfp>
-                <!--- moi custom tag, i like that -->
-            </pfp>
+            <div class="pfp-contain" id="pfpContain">
+                <div class="pfp-in">
+                    <div class="pfp-front">
+                        <img
+                            src="https://gravatar.com/avatar/b5fbf654effb8b43e41192b40f31b0b6639a54dd1ec763b54b5a75bfe3f4a4c1?v=1754874760000&size=256&d=initials"
+                            alt="pfp"
+                        />
+                    </div>
+                    <div class="pfp-back">
+                        <img src="qrcode-trans.png" alt="QR Code" />
+                    </div>
+                </div>
+                <div id="pfp-tooltip" class="tooltip">
+                    <p>
+                        Tip. Hover to switch and hover+click to freeze the qr
+                        code for easy scanning.
+                    </p>
+                </div>
+            </div>
         </header>
         <main>
-            <section></section>
+            <div class="links"></div>
+            <section>
+                <p>9th grader by day, automation developer by night.</p>
+            </section>
             <section></section>
         </main>
         <footer>
-            <p>Made By Praise-Him With <span class="heart"></span></p>
+            <p>Made By Praise-Him/Peme969 With <span class="heart"></span></p>
         </footer>
         <script>
             const root = document.documentElement,
@@ -53,6 +72,11 @@
                     set(next);
                 }
             });
+            document
+                .getElementById("pfpContain")
+                .addEventListener("click", function () {
+                    this.classList.toggle("flipped");
+                });
         </script>
     </body>
 </html>
