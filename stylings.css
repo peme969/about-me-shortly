@@ -104,8 +104,6 @@ h1:hover #hidden-text {
         clip-path: circle(150vmax at var(--x) var(--y));
     }
 }
-.links {
-}
 .pfp-contain {
     width: 200px;
     height: 200px;
@@ -158,4 +156,31 @@ h1:hover #hidden-text {
     margin: 0;
     font-size: 14px;
     line-height: 1.5;
+}
+#links-contain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #111039;
+}
+
+.links a img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
