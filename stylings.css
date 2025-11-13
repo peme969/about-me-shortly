@@ -156,6 +156,7 @@ h1:hover #hidden-text {
     margin: 0;
     font-size: 14px;
     line-height: 1.5;
+    color: black;
 }
 #links-contain {
     display: flex;
@@ -183,4 +184,8 @@ h1:hover #hidden-text {
     width: 24px;
     height: 24px;
     object-fit: contain;
+}
+.links a span {
+    color: #0f6cc9;
+    text-decoration: lightslategray underline;
 }
